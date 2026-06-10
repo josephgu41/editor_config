@@ -10,13 +10,21 @@
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.tabCompletion": "on",
   "terminal.integrated.inheritEnv": false,
+  "debug.internalConsoleOptions": "openOnSessionStart",
   "python.languageServer": "Default",
+  "python.locator": "js",
   "python.analysis.autoImportCompletions": true,
   "python.analysis.completeFunctionParens": true,
   "javascript.suggest.autoImports": true,
   "javascript.suggest.completeFunctionCalls": true,
   "typescript.suggest.autoImports": true,
   "typescript.suggest.completeFunctionCalls": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "dart.flutterHotReloadOnSave": "all",
+  "dart.hotReloadOnSave": "all",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -31,6 +39,7 @@
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.tabSize": 4
   },
+  "black-formatter.args": ["--line-length", "120"],
   "[cpp]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
@@ -44,6 +53,31 @@
   "[go]": {
     "editor.tabSize": 4,
     "editor.defaultFormatter": "golang.go"
+  },
+  "[dart]": {
+    // Automatically format code on save and during typing of certain characters
+    // (like `;` and `}`).
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+
+    // Draw a guide line at 80 characters, where Dart's formatting will wrap code.
+    "editor.rulers": [80],
+
+    // Disables built-in highlighting of words that match your selection. Without
+    // this, all instances of the selected text will be highlighted, interfering
+    // with Dart's ability to highlight only exact references to the selected variable.
+    "editor.selectionHighlight": false,
+
+    // Allows pressing <TAB> to complete snippets such as `for` even when the
+    // completion list is not visible.
+    "editor.tabCompletion": "onlySnippets",
+
+    // By default, VS Code will populate code completion with words found in the
+    // matching documents when a language service does not provide its own completions.
+    // This results in code completion suggesting words when editing comments and
+    // strings. This setting will prevent that.
+    "editor.wordBasedSuggestions": "off",
+    "editor.inlayHints.enabled": "on"
   },
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
@@ -62,7 +96,7 @@
   "vim.autoSwitchInputMethod.enable": true,
   "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
   "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
-  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select com.apple.keylayout.ABC {im}",
   "vim.normalModeKeyBindingsNonRecursive": [
     // NAVIGATION
     // switch editor tab
@@ -104,11 +138,15 @@
     // toggle comment selection
     { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
   ],
+  // tailwind css
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
   "cmake.showOptionsMovedNotification": false,
   "git.autofetch": true,
-  "cSpell.userWords": ["tauri"],
-
-  "workbench.iconTheme": "material-icon-theme",
   "code-runner.runInTerminal": true,
   "C_Cpp.autocompleteAddParentheses": true,
   "code-runner.executorMap": {
@@ -171,9 +209,84 @@
   "remote.autoForwardPortsSource": "hybrid",
   "remoteX11.SSH.privateKey": "~/.ssh/id_ed25519",
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "workbench.colorTheme": "Dracula At Night",
+  "workbench.colorTheme": "Dracula Theme",
   "vscode-office.editorTheme": "Auto",
   "editor.unicodeHighlight.allowedLocales": {
     "zh-hans": true
   },
+  "errorLens.enabledDiagnosticLevels": ["error"],
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+    "Cargo.toml": "Cargo.lock",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.db": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*",
+    "*.s3db": "${capture}.${extname}-*"
+  },
+  "continue.enableTabAutocomplete": false,
+  "remote.SSH.remotePlatform": {
+    "192.168.110.168": "linux",
+    "mininet": "linux"
+  },
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.autoFormatStrings": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "continue.showInlineTip": false,
+  "chat.commandCenter.enabled": false,
+  "yaml.schemas": {
+    "/Users/josephgu/.vscode/extensions/continue.continue-1.0.19-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ]
+  },
+  "hamibot-assistant.apiToken": "hmp_3b5bd7c2f1b82579626412ffb7c8398c7b60eeb09352f782f30e870bfc2206b3",
+  "[proto3]": {
+    "editor.defaultFormatter": "zxh404.vscode-proto3"
+  },
+  // "python.defaultInterpreterPath": "~/.local/bin/python3",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "workbench.editor.empty.hint": "hidden",
+  "extensions.autoUpdate": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "dart.devToolsLocation": {
+    "default": "beside",
+    "inspector": "beside"
+  },
+  "docker.extension.enableComposeLanguageServer": false,
+  "terminal.integrated.suggest.enabled": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "terminal.integrated.initialHint": false,
+  "playwright.reuseBrowser": false,
+  "playwright.showTrace": false,
+  "C_Cpp.copilotHover": "disabled",
+  "chat.editMode.hidden": false,
+  "inlineChat.affordance": "off",
+  "chat.agentsControl.enabled": false,
+  "chat.extensionUnification.enabled": false,
+  "chat.tips.enabled": false,
+  "jupyter.askForKernelRestart": false,
+  "github.copilot.chat.backgroundAgent.enabled": false,
+  "github.copilot.chat.claudeAgent.enabled": false,
+  "github.copilot.chat.cloudAgent.enabled": false,
+  "jupyter.kernels.excludePythonEnvironments": [
+    "/usr/local/bin/python2.7"
+  ],
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "python.defaultInterpreterPath": "python3",
 }
