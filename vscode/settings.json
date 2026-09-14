@@ -3,7 +3,6 @@
   "files.autoSave": "afterDelay",
   "editor.fontSize": 16,
   "editor.wordWrap": "on",
-  "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "editor.indentSize": "tabSize",
   "editor.suggestSelection": "first",
@@ -93,10 +92,10 @@
   "vim.easymotion": true,
   "vim.surround": true,
   "vim.timeout": 1000,
-  "vim.autoSwitchInputMethod.enable": true,
-  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
-  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
-  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select com.apple.keylayout.ABC {im}",
+  // "vim.autoSwitchInputMethod.enable": true,
+  // "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
+  // "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
+  // "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select com.apple.keylayout.ABC {im}",
   "vim.normalModeKeyBindingsNonRecursive": [
     // NAVIGATION
     // switch editor tab
@@ -209,7 +208,7 @@
   "remote.autoForwardPortsSource": "hybrid",
   "remoteX11.SSH.privateKey": "~/.ssh/id_ed25519",
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "workbench.colorTheme": "Dracula Theme",
+  "workbench.colorTheme": "Dracula At Night",
   "vscode-office.editorTheme": "Auto",
   "editor.unicodeHighlight.allowedLocales": {
     "zh-hans": true
@@ -261,7 +260,7 @@
     "scminput": false
   },
   "workbench.editor.empty.hint": "hidden",
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "off",
   "workbench.iconTheme": "material-icon-theme",
   "dart.devToolsLocation": {
     "default": "beside",
@@ -286,7 +285,11 @@
   "jupyter.kernels.excludePythonEnvironments": [
     "/usr/local/bin/python2.7"
   ],
-  "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "python.defaultInterpreterPath": "python3",
+  "claudeCode.preferredLocation": "panel",
+  "markdown-preview-enhanced.previewTheme": "vscode.css",
+  "markdown-preview-enhanced.codeBlockTheme": "vscode.css",
+  "editor.minimap.enabled": false,
+  "chatgpt.composerEnterBehavior": "cmdIfMultiline",
+  "chatgpt.followUpQueueMode": "queue",
 }
